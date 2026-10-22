@@ -12,6 +12,11 @@
     "ios": {
       "bundleIdentifier": "ke.mypaushe.app"
     },
+    "web": {
+      "name": "My Paushe",
+      "shortName": "My Paushe",
+      "description": "Find and book fuel stops, car services, dining, car washes and places to stay along your journey."
+    },
     "plugins": [
       "expo-secure-store",
       [
