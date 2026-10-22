@@ -1,0 +1,12 @@
+backend/.env
+mobile/.env
+business/.env
+node_modules/
+.expo/
+dist/
+business/node_modules/
+business/dist/
+mobile/dist/
+backend/certs/*.crt
+backend/certs/*.pem
+my-paushe-starter (1).zip

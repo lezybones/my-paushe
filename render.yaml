@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: my-paushe-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: AUTH_TOKEN_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_SSL_CA
+        value: /etc/secrets/prod-ca-2021.crt
+      - key: CLIENT_ORIGIN
+        sync: false
+
+  - type: web
+    name: my-paushe-customer
+    runtime: static
+    rootDir: mobile
+    buildCommand: npm ci && npx expo export --platform web
+    staticPublishPath: dist
+    envVars:
+      - key: EXPO_PUBLIC_API_URL
+        sync: false
+
+  - type: web
+    name: my-paushe-business
+    runtime: static
+    rootDir: business
+    buildCommand: npm ci && npx expo export --platform web
+    staticPublishPath: dist
+    envVars:
+      - key: EXPO_PUBLIC_API_URL
+        sync: false

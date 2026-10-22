@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "My Paushe Business",
+    "slug": "my-paushe-business",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "android": {
+      "package": "ke.mypaushe.business"
+    },
+    "ios": {
+      "bundleIdentifier": "ke.mypaushe.business"
+    },
+    "plugins": [
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow My Paushe Business to use your location for your business listing."
+        }
+      ],
+      "expo-asset"
+    ]
+  }
+}

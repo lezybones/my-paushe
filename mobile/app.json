@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "My Paushe",
+    "slug": "my-paushe",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "mypaushe",
+    "userInterfaceStyle": "light",
+    "android": {
+      "package": "ke.mypaushe.app"
+    },
+    "ios": {
+      "bundleIdentifier": "ke.mypaushe.app"
+    },
+    "plugins": [
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow My Paushe to find nearby services and calculate distances."
+        }
+      ]
+    ]
+  }
+}
