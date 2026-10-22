@@ -542,8 +542,6 @@ export default function App() {
           onPress={() => { setAuthMode(authMode === 'signup' ? 'login' : 'signup'); setError(''); setRegistrationCategory(''); }}
           secondary
         />
-        <Button title="Explore app demo" onPress={enterDemo} secondary />
-        <Text style={styles.smallNote}>Demo uses sample information. Changes are temporary and are not sent to the server.</Text>
       </View>
     </ScrollView>;
   }
