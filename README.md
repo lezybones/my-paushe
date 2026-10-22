@@ -132,7 +132,10 @@ The `sync: false` Blueprint values are private configuration prompts and are
 not stored in this repository. The API health check requires the database, so
 the backend will not become healthy until its URL and CA secret file are
 configured. This deploys the web apps; publishing Android/iOS builds to app
-stores is a separate process.
+stores is a separate process. The API uses Render's Free compute plan to avoid
+paid-instance charges; Free services can spin down when idle and are intended
+for testing rather than production workloads. Review Render's current free-plan
+limits before relying on this deployment for real users.
 
 ## Configure Google sign-in
 Create Google OAuth client IDs in Google Cloud Console for the web app and any native
