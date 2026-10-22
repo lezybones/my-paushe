@@ -6,7 +6,8 @@
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
-    "ios": "expo start --ios"
+    "ios": "expo start --ios",
+    "export:web": "expo export --platform web"
   },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.1",
