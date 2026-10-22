@@ -6,6 +6,7 @@ import {
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import * as Location from 'expo-location';
 import * as SecureStore from 'expo-secure-store';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
 const API = process.env.EXPO_PUBLIC_API_URL || 'http://localhost:4000';
 const SESSION_KEY = 'my-paushe-business-session-token';
@@ -17,6 +18,13 @@ const CATEGORIES = [
   ['accommodation', 'B&B / accommodation', 'Room listings and stay requests']
 ];
 let accessToken = null;
+
+function WebSpeedInsights() {
+  useEffect(() => {
+    if (Platform.OS === 'web') injectSpeedInsights({ framework: 'react' });
+  }, []);
+  return null;
+}
 
 async function request(path, options = {}) {
   const response = await fetch(`${API}${path}`, {
@@ -716,8 +724,12 @@ export default function App() {
     </View>;
   }
 
-  if (authLoading) return <SafeAreaView style={styles.loading}><ActivityIndicator size="large" color="#FFFFFF" /></SafeAreaView>;
-  return <SafeAreaView style={styles.safe}>
+  if (authLoading) return <>
+    <SafeAreaView style={styles.loading}><ActivityIndicator size="large" color="#FFFFFF" /></SafeAreaView>
+    <WebSpeedInsights />
+  </>;
+  return <>
+    <SafeAreaView style={styles.safe}>
     <ExpoStatusBar style="light" />
     <StatusBar barStyle="light-content" />
     <View style={styles.header}>
@@ -745,7 +757,9 @@ export default function App() {
       screen === 'bookings' ? bookingList() :
       screen === 'inbox' ? inbox() :
       screen === 'conversation' ? conversation() : dashboard()}
-  </SafeAreaView>;
+    </SafeAreaView>
+    <WebSpeedInsights />
+  </>;
 }
 
 function emptyProfile(category = 'car_service') {
